@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDeleteProductMutation } from '../../api/product/productApi';
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 
 const ProductDelete: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const ProductDelete: React.FC = () => {
 
   const handleDelete = async () => {
     await deleteProduct(id!);
-    navigate('/products');
+    navigate('/');
   };
 
   return (
@@ -18,7 +18,7 @@ const ProductDelete: React.FC = () => {
       visible={true}
       onOk={handleDelete}
       confirmLoading={isLoading}
-      onCancel={() => navigate('/products')}
+      onCancel={() => navigate('/')}
     >
       <p>Are you sure you want to delete this product?</p>
     </Modal>
